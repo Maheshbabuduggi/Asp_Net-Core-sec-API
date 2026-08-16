@@ -18,6 +18,12 @@ builder.Services.AddAuthentication().AddCookie("MyCookieAuth", options =>
 {
     options.Cookie.Name = "MyCookieAuth";
 });
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOnly", policy => policy.RequireClaim("admin")); 
+    options.AddPolicy("Deparment", policy => policy.RequireClaim("hr"));
+    options.AddPolicy("Department", policy => policy.RequireClaim("hr").RequireClaim("Manager"))    ;
+    });
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
