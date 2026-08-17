@@ -24,6 +24,7 @@ namespace WebApp.Controllers
 
                 requestedBy =
                     User.Identity?.Name,
+                asOf = DateTime.UtcNow,
 
                 employees = new[]
                 {

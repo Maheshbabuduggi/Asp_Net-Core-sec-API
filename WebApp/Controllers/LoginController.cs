@@ -84,7 +84,7 @@ namespace WebApp.Controllers
             var authProperties = new AuthenticationProperties
             {
                 IsPersistent = true,
-                ExpiresUtc = DateTimeOffset.UtcNow.AddSeconds(30)
+                ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30)
                ,AllowRefresh=false
             }; 
 
